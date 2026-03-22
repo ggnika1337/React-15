@@ -29,7 +29,7 @@ function Login() {
           <div className="flex gap-[10px] self-center">
             <span className="text-white">Don’t have an account?</span>
             <button className="cursor-pointer text-[#FC4747]">
-              <Link to={"/Register"}>Sign Up</Link>
+              <Link to={"/register"}>Sign Up</Link>
             </button>
           </div>
         </div>
