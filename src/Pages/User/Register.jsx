@@ -1,16 +1,40 @@
 import React, { useState } from "react";
 import Film from "../../assets/Images/FilmEmoji.svg";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 function Register() {
   const [ErrorLogin, setErrorLogin] = useState(false);
   const [ErrorPassword, setErrorPassword] = useState(false);
   const [RepeatError, setRepeatError] = useState(false);
+
+  const schema = yup.object().shape({
+    login: yup.string().email().required(),
+    password: yup.string().required().min(2).max(20),
+    repeatPassword: yup
+      .string()
+      .oneOf([yup.ref("password")], null)
+      .required(),
+  });
+
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <>
       <div className="flex flex-col self-center justify-self-center gap-[82px] pt-[90px] text-[15px] font-[400] whitespace-nowrap items-center">
         <img src={Film} className="w-[32px] h-[25px]" />
-        <div className="bg-[#161D2F] rounded-[20px] p-[32px] gap-[40px] flex flex-col">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-[#161D2F] rounded-[20px] p-[32px] gap-[40px] flex flex-col"
+        >
           <h1 className="text-[32px] text-white">Sign Up</h1>
           <input
             type="text"
@@ -21,19 +45,22 @@ function Register() {
             //     ? "1px solid #FC4747"
             //     : "1px solid #FFFFFF",
             // }}
-            placeholder="Login"
+            placeholder="Email address"
+            {...register("login")}
           />
           <input
-            type="text"
+            type="password"
             name="password"
             className="cursor-pointer text-white h-[47px] focus:outline-none border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F] px-[16px] pb-[16px]"
             placeholder="Password"
+            {...register("password")}
           />
           <input
-            type="text"
+            type="password"
             name="password"
             className="cursor-pointer text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
             placeholder="Repeat password"
+            {...register("repeatPassword")}
           />
           <button className="bg-white border-none text-[#161D2F] rounded-[6px] h-[48px] min-w-[336px] cursor-pointer">
             Login to your account
@@ -44,7 +71,7 @@ function Register() {
               <Link to={"/"}>Login</Link>
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );
