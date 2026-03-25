@@ -6,9 +6,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 function Register() {
-  const [ErrorLogin, setErrorLogin] = useState(false);
-  const [ErrorPassword, setErrorPassword] = useState(false);
-  const [RepeatError, setRepeatError] = useState(false);
+  // const [ErrorLogin, setErrorLogin] = useState(false);
+  // const [ErrorPassword, setErrorPassword] = useState(false);
+  // const [RepeatError, setRepeatError] = useState(false);
+  const [login, setLogin] = useState();
+  const [password, setPassword] = useState();
 
   const schema = yup.object().shape({
     login: yup
@@ -35,6 +37,8 @@ function Register() {
   });
 
   const onSubmit = (data) => {
+    localStorage.setItem("login", login);
+    localStorage.setItem("password", password);
     console.log(data);
   };
 
@@ -54,6 +58,9 @@ function Register() {
               className="cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
               placeholder="Email address"
               {...register("login")}
+              onChange={(e) => {
+                setLogin(e.target.value);
+              }}
             />
             <h1 className="absolute right-5 top-2 text-[#FC4747] text-[13px]">
               {errors.login?.message}
@@ -66,6 +73,9 @@ function Register() {
               className="cursor-pointer w-full text-white h-[47px] focus:outline-none border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F] px-[16px] pb-[16px]"
               placeholder="Password"
               {...register("password")}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
             <h1 className="absolute right-5 top-2 text-[#FC4747] text-[13px]">
               {errors.password?.message}

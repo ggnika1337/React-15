@@ -16,24 +16,28 @@ function Bar({ onAllClick, onMoviesClick, onTVClick, onFavouritesClick }) {
             <img
               onClick={onAllClick}
               src={All}
-              className="cursor-pointer hover:fill-[#FC4747]"
+              className="cursor-pointer hover:fill-[#FC4747] min-w-[20px]"
             />
             <img
               onClick={onMoviesClick}
               src={Movies}
-              className="cursor-pointer"
+              className="cursor-pointer min-w-[20px]"
             />
-            <img onClick={onTVClick} src={TV} className="cursor-pointer" />
+            <img
+              onClick={onTVClick}
+              src={TV}
+              className="cursor-pointer min-w-[20px]"
+            />
             <img
               onClick={onFavouritesClick}
               src={Favourites}
-              className="cursor-pointer"
+              className="cursor-pointer min-w-[20px]"
             />
           </div>
         </div>
         <img
           src={User}
-          className="size-[40px]  border-1 border-[white] rounded-[100%]"
+          className="size-[40px]  border-1 border-[white] rounded-[100%] min-w-[40px]"
         />
       </div>
     </>

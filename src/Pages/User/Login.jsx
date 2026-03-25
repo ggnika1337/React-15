@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [ErrorLogin, setErrorLogin] = useState(false);
   const [ErrorPassword, setErrorPassword] = useState(false);
+  const [login, setLogin] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   //
   const schema = yup.object().shape({
@@ -31,8 +36,16 @@ function Login() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    if (
+      localStorage.getItem("password") === password &&
+      localStorage.getItem("login") === login
+    ) {
+      navigate("/browse");
+    } else {
+      return;
+    }
   };
+
   return (
     <>
       <div className="flex flex-col self-center justify-self-center gap-[82px] pt-[90px] text-[15px] font-[400] whitespace-nowrap items-center">
@@ -49,6 +62,9 @@ function Login() {
               className="cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
               placeholder="Email address"
               {...register("login")}
+              onChange={(e) => {
+                setLogin(e.target.value);
+              }}
             />
             <h1 className="absolute right-5 top-2 text-[#FC4747] text-[13px]">
               {errors.login?.message}
@@ -61,6 +77,9 @@ function Login() {
               className="cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
               placeholder="Password"
               {...register("password")}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
             <h1 className="absolute right-5 top-2 text-[#FC4747] text-[13px]">
               {errors.password?.message}

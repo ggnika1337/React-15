@@ -13,7 +13,7 @@ function All({ AllDisplay }) {
         <h1 className="text-[32px] font-[400] text-white flex flex-col">
           Trending
         </h1>
-        <div className="flex overflow-hidden">
+        <div className="flex overflow-x-scroll whitespace-nowrap gap-[0px]">
           {filtered.map((el, key) => (
             <Movie
               key={key}
