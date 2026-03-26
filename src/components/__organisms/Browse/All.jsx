@@ -8,7 +8,7 @@ function All({ AllDisplay }) {
   });
   console.log(filtered);
   return (
-    <div className={`text-white ${AllDisplay} flex-col`}>
+    <div className={`text-white ${AllDisplay} flex-col gap-[40px]`}>
       <div className="flex flex-col gap-[25px]">
         <h1 className="text-[32px] font-[400] text-white">Trending</h1>
         <div className="flex gap-4 overflow-x-auto w-full pb-2 scrollbar-hide">
