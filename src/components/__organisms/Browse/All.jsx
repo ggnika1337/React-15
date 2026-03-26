@@ -10,10 +10,8 @@ function All({ AllDisplay }) {
   return (
     <div className={`text-white ${AllDisplay} flex-col`}>
       <div className="flex flex-col gap-[25px]">
-        <h1 className="text-[32px] font-[400] text-white flex flex-col">
-          Trending
-        </h1>
-        <div className="flex overflow-x-scroll whitespace-nowrap gap-[0px]">
+        <h1 className="text-[32px] font-[400] text-white">Trending</h1>
+        <div className="flex gap-4 overflow-x-auto w-full pb-2 scrollbar-hide">
           {filtered.map((el, key) => (
             <Movie
               key={key}
@@ -21,6 +19,7 @@ function All({ AllDisplay }) {
               year={el.year}
               type={el.category}
               rating={el.rating}
+              image={el.thumbnail.regular.large}
             />
           ))}
         </div>
