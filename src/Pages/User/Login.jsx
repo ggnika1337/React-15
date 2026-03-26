@@ -11,6 +11,7 @@ function Login() {
   const [ErrorPassword, setErrorPassword] = useState(false);
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  // const [border, setBorder] = useState("border-b-[#5A698F]");
 
   const navigate = useNavigate();
 
@@ -45,7 +46,6 @@ function Login() {
       return;
     }
   };
-
   return (
     <>
       <div className="flex flex-col self-center justify-self-center gap-[82px] pt-[90px] text-[15px] font-[400] whitespace-nowrap items-center">
@@ -59,7 +59,7 @@ function Login() {
             <input
               type="text"
               name="login"
-              className="cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
+              className={`cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 ${errors.login ? "border-red-500" : "border-[#5A698F]"}`}
               placeholder="Email address"
               {...register("login")}
               onChange={(e) => {
@@ -74,7 +74,7 @@ function Login() {
             <input
               type="password"
               name="password"
-              className="cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
+              className={`cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1  ${errors.password ? "border-red-500" : "border-[#5A698F]"}`}
               placeholder="Password"
               {...register("password")}
               onChange={(e) => {

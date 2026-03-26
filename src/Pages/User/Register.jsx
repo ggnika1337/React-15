@@ -55,7 +55,7 @@ function Register() {
             <input
               type="text"
               name="login"
-              className="cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
+              className={`cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1  ${errors.login ? "border-red-500" : "border-[#5A698F]"}`}
               placeholder="Email address"
               {...register("login")}
               onChange={(e) => {
@@ -70,7 +70,7 @@ function Register() {
             <input
               type="password"
               name="password"
-              className="cursor-pointer w-full text-white h-[47px] focus:outline-none border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F] px-[16px] pb-[16px]"
+              className={`cursor-pointer w-full text-white h-[47px] focus:outline-none border-t-0 border-l-0 border-r-0 border-1  ${errors.login ? "border-red-500" : "border-[#5A698F]"} px-[16px] pb-[16px]`}
               placeholder="Password"
               {...register("password")}
               onChange={(e) => {
@@ -85,7 +85,7 @@ function Register() {
             <input
               type="password"
               name="password"
-              className="cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1 border-b-[#5A698F]"
+              className={`cursor-pointer w-full text-white h-[47px] focus:outline-none px-[16px] pb-[16px] border-t-0 border-l-0 border-r-0 border-1  ${errors.login ? "border-red-500" : "border-[#5A698F]"}`}
               placeholder="Repeat password"
               {...register("repeatPassword")}
             />
