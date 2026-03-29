@@ -13,7 +13,7 @@ function Website() {
 
   return (
     <>
-      <div className="flex gap-[36px]">
+      <div className="flex gap-[36px] w-full">
         <Bar
           onAllClick={() => {
             setAll("flex");

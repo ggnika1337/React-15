@@ -5,9 +5,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
-
+body::-webkit-scrollbar {
+  display: none;
+}
 * {
   font-family: "Outfit", sans-serif;
   transition: 0.5s ease-in-out;
@@ -19,4 +20,8 @@ body {
   display: flex;
   flex-direction: column;
   padding: 32px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

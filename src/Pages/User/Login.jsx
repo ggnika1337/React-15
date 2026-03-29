@@ -48,7 +48,7 @@ function Login() {
   };
   return (
     <>
-      <div className="flex flex-col self-center justify-self-center gap-[82px] pt-[90px] text-[15px] font-[400] whitespace-nowrap items-center">
+      <div className="flex flex-col self-center justify-self-center gap-[82px] text-[15px] font-[400] whitespace-nowrap items-center">
         <img src={Film} className="w-[32px] h-[25px]" />
         <form
           onSubmit={handleSubmit(onSubmit)}

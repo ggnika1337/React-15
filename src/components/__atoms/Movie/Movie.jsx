@@ -5,7 +5,7 @@ import Play from "../../../assets/Images/PlayBtn.png";
 import FavUnfilled from "../../../assets/Images/FavouriteUnfilled.svg";
 import FavFilled from "../../../assets/Images/FavouriteFilled.svg";
 
-function Movie({ title, year, type, rating, image }) {
+function Movie({ title, year, type, rating, image, scroll }) {
   const [favourited, setFavourited] = useState(false);
 
   function favourite() {
@@ -13,14 +13,27 @@ function Movie({ title, year, type, rating, image }) {
     localStorage.setItem(title, "isFavourite = true");
   }
   return (
-    <div className="flex-shrink-0 w-[470px] h-[230px] relative rounded-[8px] cursor-pointer relative flex items-center justify-center group">
+    <div
+      style={{
+        width: scroll ? "470px" : "280px",
+        height: scroll ? "230px" : "226px",
+        marginTop: scroll ? "0px" : "60px",
+      }}
+      className="flex-shrink-0 relative rounded-[8px] cursor-pointer relative flex items-center justify-center group"
+    >
       <img
         src={image}
         className="absolute inset-0 w-full h-full object-cover rounded-[8px]"
         alt={title}
       />
 
-      <div className="absolute left-[24px] bottom-[24px] text-white">
+      <div
+        style={{
+          bottom: scroll ? "24px" : "-65px",
+          left: scroll ? "24px" : "0px",
+        }}
+        className="left-[24px] absolute text-white"
+      >
         <div className="flex gap-[8px] text-sm items-center opacity-75">
           <span>{year}</span>
           <span>•</span>
