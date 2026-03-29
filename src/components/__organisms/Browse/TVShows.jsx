@@ -3,7 +3,7 @@ import data from "../../../../data.json";
 import Movie from "../../__atoms/Movie/Movie";
 import Search from "../../__atoms/Search/Search";
 
-function Movies({ TVDisplay }) {
+function TVShows({ TVDisplay }) {
   const [search, setSearch] = useState("");
   let searched = data.filter(
     (el) => el.title.includes(search) && el.category === "TV Series",
@@ -23,7 +23,7 @@ function Movies({ TVDisplay }) {
           setSearch(e.target.value);
           console.log(search);
         }}
-        placeholder={"Search for movies"}
+        placeholder={"Search for TV series"}
       />
 
       <div className="flex flex-col">
@@ -50,6 +50,7 @@ function Movies({ TVDisplay }) {
                 rating={el.rating}
                 image={el.thumbnail.regular.large}
                 scroll={false}
+                favourited={true}
               />
             );
           })}
@@ -59,4 +60,4 @@ function Movies({ TVDisplay }) {
   );
 }
 
-export default Movies;
+export default TVShows;

@@ -10,7 +10,7 @@ function Movie({ title, year, type, rating, image, scroll }) {
 
   function favourite() {
     setFavourited(true);
-    localStorage.setItem(title, "isFavourite = true");
+    localStorage.setItem(title, "isFavourite");
   }
   return (
     <div
