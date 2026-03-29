@@ -45,29 +45,17 @@ function All({ AllDisplay }) {
           ))}
         </div>
       </div>
-      <div
-        style={{ display: search === "" ? "flex" : "none" }}
-        className="flex flex-col pr-[120px]"
-      >
-        <h1 className="text-[32px] font-[400] text-white">
+      <div className="flex flex-col pr-[120px]">
+        <h1
+          style={{ display: search === "" ? "flex" : "none" }}
+          className="text-[32px] font-[400] text-white"
+        >
           Recommended for you
         </h1>
-        <div className="text-white flex flex-wrap gap-[20px] w-full">
-          {data.map((el, key) => (
-            <Movie
-              key={key}
-              title={el.title}
-              year={el.year}
-              type={el.category}
-              rating={el.rating}
-              image={el.thumbnail.regular.large}
-              scroll={false}
-            />
-          ))}
-        </div>
-      </div>
-      <div className="text-white flex flex-wrap gap-[20px] w-full flex flex-col">
-        <h1>
+        <h1
+          className="font-[400] text-[32px]"
+          style={{ display: search === "" ? "none" : "block" }}
+        >
           Found {searched.length} results for ‘{search}’
         </h1>
         <div className="text-white flex flex-wrap gap-[20px] w-full">
