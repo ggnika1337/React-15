@@ -2,15 +2,27 @@ import React, { useState } from "react";
 import Movies from "../../../assets/Images/MoviesWhite.svg";
 import TV from "../../../assets/Images/TVWhite.svg";
 import Play from "../../../assets/Images/PlayBtn.png";
-import FavUnfilled from "../../../assets/Images/FavouriteUnfilled.svg";
 import FavFilled from "../../../assets/Images/FavouriteFilled.svg";
+import FavUnfilled from "../../../assets/Images/FavouriteUnfilled.svg";
 
 function Movie({ title, year, type, rating, image, scroll }) {
   const [favourited, setFavourited] = useState(false);
 
   function favourite() {
-    setFavourited(true);
-    localStorage.setItem(title, "isFavourite");
+    if (favourited === false) {
+      setFavourited(true);
+    } else {
+      setFavourited(false);
+    }
+
+    const array = JSON.parse(localStorage.getItem("favourites") || "[]");
+
+    if (array.includes(title)) {
+      return;
+    } else {
+      array.push(title);
+    }
+    localStorage.setItem("favourites", JSON.stringify(array));
   }
   return (
     <div

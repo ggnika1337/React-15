@@ -1,20 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import data from "../../../../data.json";
 import Movie from "../../__atoms/Movie/Movie";
 import Search from "../../__atoms/Search/Search";
 
 function Favourites({ FavouritesDisplay }) {
   const [search, setSearch] = useState("");
-  let searched = data.filter(
-    (el) => el.title.includes(search) && el.category === "TV Series",
-  );
+  const favourites = JSON.parse(localStorage.getItem("favourites") || "[]");
+  let searched = data.filter((el) => el.title.includes(favourites));
 
   let bookmarkedFilms = data.filter(
-    (el) => el.isBookmarked === true && el.category === "Movies",
+    (el) => favourites.includes(el.title) && el.category === "Movies",
   );
 
   let bookmarkedTVSeries = data.filter(
-    (el) => el.isBookmarked === true && el.category === "TV Series",
+    (el) => favourites.includes(el.title) && el.category === "TV Series",
   );
 
   return (
