@@ -25,3 +25,10 @@ body::-webkit-scrollbar {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+@media screen and (max-width: 768px) {
+  #root {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}

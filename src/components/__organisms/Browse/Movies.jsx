@@ -16,12 +16,10 @@ function Movies({ MoviesDisplay }) {
       <Search
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(searched);
           setEntered(true);
         }}
         onChange={(e) => {
           setSearch(e.target.value);
-          console.log(search);
         }}
         placeholder={"Search for movies"}
       />
@@ -39,7 +37,7 @@ function Movies({ MoviesDisplay }) {
         >
           Found {searched.length} results for ‘{search}’
         </h1>
-        <div className="text-white flex flex-wrap gap-[20px] w-full">
+        <div className="text-white flex flex-wrap gap-[20px] w-full max-md:justify-center">
           {searched.map((el, key) => {
             return (
               <Movie

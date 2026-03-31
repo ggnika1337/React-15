@@ -39,7 +39,6 @@ function Register() {
   const onSubmit = (data) => {
     localStorage.setItem("login", login);
     localStorage.setItem("password", password);
-    console.log(data);
   };
 
   return (

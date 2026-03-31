@@ -6,7 +6,7 @@ function Search({ placeholder, onSubmit, onChange }) {
     <>
       <form
         onSubmit={onSubmit}
-        className="flex items-center gap-6.75 pt-[36px] w-full  pr-[120px] group"
+        className="flex items-center gap-6.75 pt-[36px] w-full  pr-[120px] group max-md:pt-[50px]"
       >
         <img src={Magnifier} className="pb-[10px]" />
         <div className="flex flex-col gap-[15px] w-full">

@@ -17,12 +17,10 @@ function All({ AllDisplay }) {
       <Search
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(searched);
           setEntered(true);
         }}
         onChange={(e) => {
           setSearch(e.target.value);
-          console.log(search);
         }}
         placeholder={"Search for movies or TV series"}
       />
@@ -31,7 +29,10 @@ function All({ AllDisplay }) {
         className="flex flex-col gap-[25px]"
       >
         <h1 className="text-[32px] font-[400] text-white">Trending</h1>
-        <div className="flex gap-4 overflow-x-auto w-full pb-2 shrink-0">
+        <div
+          style={{ scrollbarWidth: "none" }}
+          className="flex gap-4 overflow-x-auto w-full pb-2 shrink-0"
+        >
           {filtered.map((el, key) => (
             <Movie
               key={key}
@@ -45,7 +46,7 @@ function All({ AllDisplay }) {
           ))}
         </div>
       </div>
-      <div className="flex flex-col pr-[120px]">
+      <div className="flex flex-col pr-[120px] max-md:pr-[10px]">
         <h1
           style={{ display: search === "" ? "flex" : "none" }}
           className="text-[32px] font-[400] text-white"
@@ -58,7 +59,7 @@ function All({ AllDisplay }) {
         >
           Found {searched.length} results for ‘{search}’
         </h1>
-        <div className="text-white flex flex-wrap gap-[20px] w-full">
+        <div className="text-white flex flex-wrap gap-[20px] w-full max-md:justify-center">
           {searched.map((el, key) => {
             return (
               <Movie

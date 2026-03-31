@@ -52,7 +52,7 @@ function Login() {
         <img src={Film} className="w-[32px] h-[25px]" />
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-[#161D2F] rounded-[20px] p-[32px] gap-[40px] flex flex-col"
+          className="bg-[#161D2F] rounded-[20px] p-[32px] gap-[40px] flex flex-col max-sm:p-[24px]"
         >
           <h1 className="text-[32px] text-white">Login</h1>
           <div className="w-full relative">
@@ -85,7 +85,7 @@ function Login() {
               {errors.password?.message}
             </h1>
           </div>
-          <button className="bg-white border-none text-[#161D2F] rounded-[6px] h-[48px] min-w-[336px] cursor-pointer">
+          <button className="bg-white border-none text-[#161D2F] rounded-[6px] h-[48px] w-[336px] max-sm:w-[279px] cursor-pointer">
             Login to your account
           </button>
           <div className="flex gap-[10px] self-center">
